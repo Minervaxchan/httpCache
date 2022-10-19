@@ -12,7 +12,8 @@ http.createServer((req, res) => {
     res.end(data);
   } else if (/.*?\.jpe?g/.test(pathname)) {
     // res.setHeader('Cache-Control', 'max-age=0');
-    res.setHeader('Cache-Control', 'no-cache');
+    res.setHeader('Expires', new Date('2022/10/18 21:33:00').toUTCString());
+    // res.setHeader('Cache-Control', 'no-cache');
 
     const stat = fs.statSync('./images/02.jpeg');
     const lastModified = stat.mtime.toUTCString();
